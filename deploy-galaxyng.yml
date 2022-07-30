@@ -1,0 +1,26 @@
+---
+- hosts: all
+  roles:
+    - pulp.pulp_installer.pulp_all_services
+  environment:
+    DJANGO_SETTINGS_MODULE: pulpcore.app.settings
+
+- hosts: all
+  tasks:
+    - name: Clean OpenAPI cache
+      file:
+        path: "{{ lookup('env', 'XDG_CACHE_HOME') | default('~/.cache') }}/squeezer"
+        state: absent
+
+    - name: Get services
+      service_facts:
+
+    - name: Restart all pulpcore* services
+      systemd:
+        daemon_reload: true
+        name: "{{ item.value.name }}"
+        state: restarted
+      when: "item.value.name != 'pulpcore-worker@.service'"
+      with_dict: '{{ ansible_facts.services|dict2items|selectattr("key", "contains", "pulpcore")|list|items2dict }}'
+      become: true
+
