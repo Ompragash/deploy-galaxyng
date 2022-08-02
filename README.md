@@ -65,9 +65,10 @@ ansible-playbook deploy-galaxyng.yml -e "@install-vars.yml" -i inventory
 ```
 > _**Note:** Playbook execution takes around ~13 minutes to complete._
 
-On successful execution, open `https://localhost/` in any browser and login with username (**admin**) & password (value of **pulp_default_admin_password** variable)
+On successful execution, open `https://HOST_FQDN/` in any browser and login with username (**admin**) & password (value of **pulp_default_admin_password** variable)
 
-Yayy!🎉 All set! 
+Yayy!🎉 All set!
+
 Finally, Publish/download Ansible content to Self-hosted Galaxy NG server!
 
 
