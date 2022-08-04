@@ -3,7 +3,7 @@
     "model": "auth.group",
     "pk": 1,
     "fields": {
-      "name": "system:galaxy-org",
+      "name": "system:opensource-ops",
       "permissions": []
     }
   },
@@ -11,7 +11,7 @@
     "model": "galaxy.user",
     "pk": 1,
     "fields": {
-      "password": "AnsibleRocks",
+      "password": "$pbkdf2-sha256$29000$M4aQ8p6z9v6/l7I25hzj3A$/SPtCrbcKlJP2SXpm5l/.fhsrMU4WJ7EmBjbAD9UajA",
       "last_login": null,
       "is_superuser": true,
       "username": "admin",
@@ -20,7 +20,7 @@
       "email": "admin@example.com",
       "is_staff": true,
       "is_active": true,
-      "date_joined": "2022-08-04T00:00:00.000Z",
+      "date_joined": "2020-01-01T00:00:00.000Z",
       "groups": [1],
       "user_permissions": []
     }
